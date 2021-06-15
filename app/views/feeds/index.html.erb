@@ -5,7 +5,7 @@
 <br>
 <table class="container">
   <div class="row">
-    <% @feeds.each do |picture| %>
+    <% @feeds.each do |feed| %>
          <p><%= feed.user.name %></p>
          <p>Content <%= feed.content %></p>
          <p><%= image_tag(feed.image.url) %></p>

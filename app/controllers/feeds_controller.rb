@@ -1,4 +1,4 @@
-class PicturesController < ApplicationController
+class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
   before_action :user_login_check, only: [:new]
 
@@ -37,8 +37,8 @@ class PicturesController < ApplicationController
     @feed = current_user.feeds.build(feed_params)
     render :new if @feed.invalid?
   end
-  # PATCH/PUT /pictures/1
-  # PATCH/PUT /pictures/1.json
+  # PATCH/PUT /feeds/1
+  # PATCH/PUT /feeds/1.json
   def update
     respond_to do |format|
       if @feed.update(feed_params)
