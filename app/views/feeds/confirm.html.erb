@@ -1,11 +1,14 @@
-<h1>confirmation screen</h1>
-<%= form_with(model: @feed, url: feeds_path, local: true) do |form| %>
-  <!-- confirmation screenでDescription to display the uploaded image -->
+<h1>Do you want to post this ?</h1>
+
+<%= form_with(model: @feed, url: pictures_path, local: true) do |form| %>
+  <!-- Description for displaying the uploaded image on the confirmation screen -->
+  <%= form.hidden_field :content %>
+  <p>Content: <%= @feed.content %></p>
   <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
   <%= form.hidden_field :image_cache %>
-  <%= form.submit "To post" %>
-<% end %>
-<%= form_with(model:@feed, url:new_feed_path, local:true, method:"get") do |form| %>
+  <%= form.submit "Post" %>
+  <% end %>
+  <%= form_with(model:@feed, url:new_picture_path, local:true, method:"get") do |form| %>
   <%= form.hidden_field :image_cache %>
-  <%= form.submit "Return", name: "back" %>
+  <%= form.submit "Do not post", name: 'Back' %>
 <% end %>
